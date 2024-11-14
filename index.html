@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19/11 vui vẻ nha thằng lol</title>
+    <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Chúc mừng ngày bồn cầu thế giới :V</h1>
+            <p>Nhập pass đê m</p>
+            
+            <div id="passwordForm">
+                <input type="password" id="passwordInput" placeholder="Nhanh đê">
+                <button onclick="checkPassword()">DÔ DÔ</button>
+                <p id="errorMessage" class="error"></p>
+            </div>
+            
+            <div id="protectedContent" style="display: none;">
+                <div class="alert">
+                    <h2>Vào được rồi này</h2>
+                    <p>Vào mà xem điii!.</p>
+                </div>
+                <div class="content">
+                    <h2>Nội dung bí mật</h2>
+                    <p>Đây là nội dung bí mật mà chỉ những người có mật khẩu mới có thể xem. Bạn có thể thêm bất kỳ thông tin quan trọng nào ở đây.</p>
+                </div>
+                <button onclick="lockContent()">Khóa lại</button>
+            </div>
+        </div>
+    </div>
+    <script>
+   const correctPassword = 'anhcute'; // In a real app, this would be securely stored on the server
+
+   function checkPassword() {
+       const passwordInput = document.getElementById('passwordInput');
+       const errorMessage = document.getElementById('errorMessage');
+       const passwordForm = document.getElementById('passwordForm');
+       const protectedContent = document.getElementById('protectedContent');
+
+       if (passwordInput.value === correctPassword) {
+           window.location.href = "1911-1.html"; // Thay đổi "newPage.html" thành trang bạn muốn chuyển đến
+       } else {
+           errorMessage.textContent = 'Sai rồi, lại đi m.';
+       }
+   }
+
+   function lockContent() {
+       const passwordForm = document.getElementById('passwordForm');
+       const protectedContent = document.getElementById('protectedContent');
+       const passwordInput = document.getElementById('passwordInput');
+
+       passwordForm.style.display = 'block';
+       protectedContent.style.display = 'none';
+       passwordInput.value = '';
+   }
+
+   // Add event listener for Enter key on password input
+   document.getElementById('passwordInput').addEventListener('keyup', function(event) {
+       if (event.key === 'Enter') {
+           checkPassword();
+       }
+   });
+   </script>
+</body>
+</html>
